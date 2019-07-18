@@ -1,0 +1,208 @@
+/* =============
+    Hero
+============== */
+#hero {
+  padding-top: 80px;
+  position: relative;
+  z-index: 2;
+
+  > div {
+    @include sm {
+      display: grid;
+      grid-template-columns: 8% auto 8%;
+    }
+    @include md {
+      grid-template-columns: 18% auto 18%;
+    }
+    @include lg {
+      grid-template-columns: 20% auto 20%;
+    }
+
+    .hero-deco-text {
+      height: 100%;
+      position: absolute;
+      width: 100vw;
+
+      .locator {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      article {
+        background-image: url("../img/Hero/innovation.svg");
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: 85%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        transform: rotateZ(-15deg);
+        width: 130vw;
+        @include sm {
+          background-size: 90%;
+          top: 80%;
+        }
+        @include md {
+          background-position: top center;
+          background-size: 85%;
+          top: 60%;
+        }
+        @include lg {
+          background-size: 90%;
+          top: 65%;
+        }
+      }
+    }
+
+    > div {
+      background-image: url("../img/Hero/hero1.png");
+      background-position: center;
+      background-size: cover;
+      height: 550px;
+      width: 100%;
+      @include sm {
+        background-position: 0 25%;
+        grid-column: 2 / 3;
+        height: 680px;
+      }
+      @include md {
+        height: 800px;
+      }
+      @include lg {
+        height: 950px;
+      }
+    }
+  }
+}
+
+.hero-img {
+  background-blend-mode: multiply;
+  background-color: $primary;
+  background-image: url("../img/Hero/hero2.png");
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  left: 63%;
+  margin-left: -25vw;
+  margin-top: -80px;
+  position: absolute;
+  width: 50%;
+  z-index: 1;
+  @include sm {
+    height: 400px;
+  }
+  @include md {
+    height: 500px;
+    left: 60%;
+    width: 43%;
+  }
+
+  article {
+    margin-left: rem-calc(-110px);
+    position: absolute;
+    top: 25%;
+    z-index: 2;
+    @include md {
+      top: 10%;
+    }
+
+    h1 {
+      font-family: "roc-grotesk-extrawide",sans-serif;
+      font-size: rem-calc(28px);
+      line-height: 1;
+      @include sm {
+        font-size: rem-calc(35px);
+      }
+      @include md {
+        font-size: rem-calc(40px);
+      }
+    }
+
+    p {
+      font-weight: 100;
+      padding-bottom: rem-10px;
+      @include md {
+        margin-left: 23%;
+        padding-bottom: rem-calc(15px);
+        text-align: right;
+        writing-mode: vertical-rl;
+      }
+    }
+  }
+
+  .hero-elements:first-child {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: rem-calc(140px);
+    justify-content: center;
+    left: 65%;
+    margin-bottom: rem-calc(-40px);
+    width: rem-calc(25px);
+    @include sm {
+      height: rem-calc(200px);
+      margin-bottom: rem-calc(-80px);
+    }
+
+    .arrow {
+      bottom: 1%;
+      position: absolute;
+    }
+
+    b.line {
+      height: 100%;
+      position: absolute;
+    }
+  }
+
+  .hero-elements:last-child {
+    left: rem-calc(-40px);
+    top: 60%;
+
+    .ring {
+      left: -26px;
+    }
+
+    .arrow {
+      margin-bottom: -5px;
+    }
+
+    b.arrow-line {
+      height: 65%;
+      margin-top: -3px;
+    }
+
+    b.line {
+      height: 1150px;
+      position: absolute;
+      top: rem-calc(50px);
+      @include sm {
+        height: 1400px;
+      }
+    }
+
+    h3 {
+      font-family: "roc-grotesk-extrawide",sans-serif;
+      height: rem-calc(240px);
+      position: absolute;
+      right: rem-calc(40px);
+      top: rem-calc(150px);
+      writing-mode: vertical-rl;
+      @include sm {
+        font-size: rem-calc(17px);
+        top: rem-calc(300px);
+      }
+      @include md {
+        font-size: rem-calc(19px);
+      }
+      @include ml {
+        font-size: rem-calc(25px);
+        height: rem-calc(350px);
+      }
+      @include lg {
+        display: none;
+      }
+    }
+  }
+}

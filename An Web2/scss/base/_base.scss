@@ -1,0 +1,134 @@
+/* =============
+    Base
+============= */
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding: 0;
+  padding-inline-start: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-areas: ". content .";
+  grid-template-columns: 10px auto 10px;
+  padding: 10px 0 0;
+
+  > div {
+    grid-area: content;
+  }
+}
+
+main {
+  background-color: black;
+  color: white;
+}
+/* ========================
+      Element Classes
+========================= */
+.hero-elements {
+  position: absolute;
+  z-index: 3;
+}
+
+.ring {
+  align-items: center;
+  border: 2px solid white;
+  border-radius: rem-calc(50px);
+  display: flex;
+  height: rem-calc(50px);
+  justify-content: center;
+  position: relative;
+  width: rem-calc(50px);
+}
+
+.locator {
+  height: 100%;
+  position: relative;
+  size: 100%;
+}
+
+.down {
+  transform: rotateZ(45deg);
+}
+
+.up {
+  transform: rotateZ(-180deg);
+}
+
+.right {
+  transform: rotateZ(-90deg);
+}
+
+.left {
+  transform: rotateZ(90deg);
+}
+
+.arrow {
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  height: rem-calc(15px);
+  width: rem-calc(15px);
+  // margin-top: 6px;
+}
+
+.arrow-line {
+  background-color: white;
+  height: 65%;
+  position: absolute;
+  width: 2px;
+}
+
+.line {
+  background-color: white;
+  width: 2px;
+}
+/* ========================
+      Responsive
+========================= */
+.md {
+  display: none;
+  @include md {
+    display: block;
+  }
+}
+
+.sm {
+  display: none;
+  @include sm {
+    display: block;
+  }
+}
+
+.lg {
+  display: none;
+  @include lg {
+    display: block;
+  }
+}

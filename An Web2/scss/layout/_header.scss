@@ -1,0 +1,74 @@
+/* =============
+    Header
+============= */
+header {
+  background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
+  overflow: hidden;
+  // border-bottom: 1px solid $text;
+  padding-bottom: 5px;
+  position: fixed;
+  width: 100%;
+  z-index: 30;
+
+  nav {
+    > div {
+      align-items: flex-end;
+      display: flex;
+      justify-content: space-between;
+
+      div:first-child {
+        height: auto;
+        width: 35px;
+      }
+
+      div:last-child {
+        div:first-child {
+          display: flex;
+          font-size: 25px;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
+
+.menu-list {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    padding-left: 30px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  input {
+    background-color: black;
+    border-color: $text;
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+    transition: 0.5s;
+    transition-timing-function: ease;
+  }
+
+  input:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+    transition-timing-function: ease;
+  }
+}
+
+.menu-button {
+  &:hover {
+    color: $primary;
+  }
+}
+
+.none {
+  display: none;
+}

@@ -1,0 +1,593 @@
+/* =============
+    Gallery
+============= */
+#gallery {
+  margin-top: 100px;
+  position: relative;
+
+  .gallery-mobile {
+    @include md {
+      display: none;
+    }
+  }
+
+  > div.gallery-mobile {
+    .line {
+      background-color: white;
+      height: 1350px;
+      left: 37%;
+      position: absolute;
+      z-index: 3;
+      @include sm {
+        height: 3000px;
+        max-height: none;
+      }
+
+      .locator {
+        display: flex;
+        justify-content: center;
+      }
+
+      .arrow {
+        bottom: 0;
+        position: absolute;
+      }
+    }
+
+    > article:last-child {
+      display: grid;
+      grid-template-columns: 70% auto;
+      position: relative;
+      z-index: 3;
+
+      > div {
+        background-color: black;
+        border: 1px solid white;
+        border-left-width: 0;
+        grid-column: 1 / 2;
+
+        h2 {
+          font-family: "roc-grotesk-extrawide",sans-serif;
+          font-size: rem-calc(20px);
+          padding: 30px 30px 20px;
+
+          > span {
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    > article:first-child {
+      -moz-text-fill-color: transparent;
+      -moz-text-stroke-color: $text;
+      -moz-text-stroke-width: 1px;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-color: $text;
+      -webkit-text-stroke-width: 1px;
+      font-family: "roc-grotesk-extrawide",sans-serif;
+      font-size: rem-calc(25px);
+      margin-top: -24px;
+      overflow: hidden;
+      position: absolute;
+      text-overflow: clip;
+      width: 100%;
+      z-index: 2;
+
+      h1:first-child {
+        margin-left: rem-calc(-30px);
+      }
+
+      h1:last-child {
+        margin-right: rem-calc(-30px);
+        margin-top: 40px;
+        text-align: right;
+      }
+    }
+  }
+
+  .content-grid {
+    @include md {
+      grid-template-columns: 1fr 80vw 1fr;
+    }
+    @include lg {
+      grid-template-columns: 1fr 90vw 1fr;
+    }
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-row-gap: 20px;
+    grid-template-rows: repeat(3,300px);
+    margin-top: 40px;
+    position: relative;
+    z-index: 4;
+    @include sm {
+      grid-template-rows: repeat(5,500px);
+    }
+    @include md {
+      grid-row-gap: 0;
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: repeat(8,40vw);
+      margin: auto 20px;
+    }
+    @include lg {
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(9,30vw);
+    }
+    /* ----------------
+        Blocks-settings
+    ------------------*/
+    .border-box {
+      border: 1px solid white;
+    }
+
+    .gallery-arrow {
+      > div {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        position: relative;
+
+        .Y-locator {
+          background-color: red;
+          position: absolute;
+          top: 0;
+        }
+
+        .line {}
+
+        .locator {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
+
+        .arrow {
+          margin-left: -7px;
+        }
+      }
+    }
+
+    .gallery-year {
+      background-color: black;
+      border: 1px solid white;
+      bottom: 0;
+      height: 8vw;
+      margin-bottom: -4vw;
+      margin-right: -10vw;
+      position: absolute;
+      right: 0;
+      width: 20vw;
+
+      > article {
+        align-items: center;
+        display: flex;
+        font-family: "benton-sans-wide",sans-serif;
+        font-size: rem-calc(20px);
+        height: 100%;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    li {
+      @include md {
+        height: 100%;
+        width: 100%;
+      }
+      /* --------------
+          Gal. Imgs
+      --------------- */
+      &:nth-child(1) {
+        background-image: url("../img/Gallery/gallery.png");
+        background-size: cover;
+        @include md {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+        }
+        @include lg {
+          grid-column: 3 / 4;
+          grid-row: 3 / 5;
+        }
+      }
+
+      &:nth-child(2) {
+        background-image: url("../img/Gallery/gallery2.png");
+        background-position: right;
+        background-size: cover;
+        @include md {
+          grid-column: 2 / 3;
+          grid-row: 3 / 4;
+        }
+        @include lg {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+        }
+      }
+
+      &:nth-child(3) {
+        @include sm {
+          background-image: url("../img/Gallery/gallery5.png");
+          background-position: right;
+          background-size: cover;
+          grid-row: span 2;
+        }
+        @include md {
+          grid-column: 1 / 2;
+          grid-row: 4 / 6;
+        }
+        @include lg {
+          grid-column: 1 / 2;
+          grid-row: 6 / 8;
+        }
+      }
+
+      &:nth-child(4) {
+        background-image: url("../img/Gallery/gallery3.png");
+        background-position: center;
+        background-size: cover;
+        @include md {
+          grid-column: 1 / 2;
+          grid-row: 7 / 8;
+        }
+        @include lg {
+          grid-column: 2 / 3;
+          grid-row: 5 / 6;
+        }
+      }
+
+      &:nth-child(5) {
+        background-image: url("../img/Gallery/gallery4.png");
+        background-position: center;
+        background-size: cover;
+        grid-column: 2 / 3;
+        grid-row: 8 / 9;
+      }
+      /* --------------
+          Text&Navs
+      --------------- */
+      &:nth-child(6) {
+        border: 1px solid white;
+        display: relative;
+        font-family: "roc-grotesk-extrawide",sans-serif;
+        font-size: rem-calc(25px);
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        @include ml {
+          font-size: rem-calc(30px);
+        }
+        @include lg {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+        }
+
+        > div {
+          margin-left: -25vw;
+          position: absolute;
+          top: 5vw;
+
+          span {
+            color: $primary;
+          }
+        }
+
+        > article {
+          height: 100%;
+          position: relative;
+          width: 100%;
+
+          > div {
+            position: absolute;
+            top: 10%;
+            width: 100%;
+
+            > aside {
+              height: 30vw;
+              margin-left: -51vw;
+              width: 101vw;
+              @include ml {
+                height: 35vw;
+              }
+              @include lg {
+                margin-left: -65.45vw;
+                width: 101vw;
+              }
+
+              > article {
+                -moz-text-fill-color: transparent;
+                -moz-text-stroke-color: $text;
+                -moz-text-stroke-width: 1px;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-color: $text;
+                -webkit-text-stroke-width: 1px;
+                font-family: "roc-grotesk-extrawide",sans-serif;
+                font-size: rem-calc(40px);
+                line-height: rem-calc(80px);
+                margin-top: 15vw;
+                overflow: hidden;
+                position: relative;
+                text-overflow: clip;
+                width: 100%;
+                z-index: 2;
+                @include ml {
+                  font-size: rem-calc(50px);
+                  padding-top: 5px;
+                }
+                @include lg {
+                  font-size: rem-calc(55px);
+                  margin-top: 5vw;
+                  padding-top: 10px;
+                }
+
+                h1:first-child {
+                  left: 0;
+                  margin-left: -55px;
+                }
+
+                h1:last-child {
+                  margin-right: -55px;
+                  right: 0;
+                  text-align: right;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &:nth-child(7) {
+        border: 1px solid white;
+        grid-column: 2 / 3;
+        grid-row: 8 / 9;
+        @include lg {
+          grid-column: 1 / 2;
+          grid-row: 9 / 10;
+        }
+
+        > div {
+          align-items: center;
+          display: flex;
+          height: 100%;
+          justify-content: center;
+          position: relative;
+
+          p {
+            font-family: "benton-sans-wide",sans-serif;
+            font-size: rem-calc(19px);
+            text-align: center;
+          }
+
+          .Y-locator {
+            bottom: 0;
+            position: absolute;
+          }
+
+          .X-locator {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 5vw;
+          }
+
+          .arrow-line {
+            height: 2px;
+            margin-top: 4vw;
+            width: 25vw;
+          }
+
+          .locator {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+          }
+
+          .arrow {
+            margin-left: -8px;
+            margin-top: -8px;
+            transform: rotateZ(-45deg);
+          }
+        }
+      }
+      /* --------------
+          Struct.Blocks
+      ---------------- */
+      &:nth-child(8) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+      }
+
+      &:nth-child(9) {
+        grid-column: 2 / 3;
+        grid-row: 5 / 7;
+        @include lg {
+          grid-column: 2 / 3;
+          grid-row: 6 / 8;
+        }
+      }
+
+      &:nth-child(10) {
+        grid-column: 3 / 4;
+        grid-row: 8 / 9;
+      }
+      /* --------------
+        Extras
+    ---------------- */
+      &:nth-child(11) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        @include lg {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+        }
+
+        .line {
+          height: 50vw;
+          @include ml {
+            height: 20vw;
+          }
+        }
+
+        .Y-locator {
+          margin-top: -20vw;
+          @include ml {
+            margin-top: 30vw;
+          }
+          @include lg {
+            margin-top: 20vw;
+          }
+        }
+      }
+
+      &:nth-child(12) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        @include lg {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+        }
+
+        .line {
+          height: 15vw;
+          @include lg {
+            height: 30vw;
+          }
+        }
+
+        .Y-locator {
+          margin-top: 35vw;
+          @include lg {
+            margin-top: 50vw;
+          }
+        }
+      }
+
+      &:nth-child(13) {
+        grid-column: 2 / 3;
+        grid-row: 5 / 7;
+        @include lg {
+          grid-column: 2 / 3;
+          grid-row: 6 / 7;
+        }
+
+        .line {
+          height: 45vw;
+          @include lg {
+            height: 25vw;
+          }
+        }
+
+        .Y-locator {
+          margin-top: -30vw;
+          @include lg {
+            margin-top: -15vw;
+          }
+        }
+      }
+
+      &:nth-child(14) {
+        grid-column: 2 / 3;
+        grid-row: 8 / 9;
+        @include lg {
+          grid-column: 3 / 4;
+          grid-row: 7 / 8;
+        }
+
+        .line {
+          height: 30vw;
+          @include lg {
+            height: 75vw;
+          }
+        }
+
+        .Y-locator {
+          margin-top: 40vw;
+        }
+      }
+
+      &:nth-child(15) {
+        background-color: white;
+        grid-column: 2 / 2;
+        grid-row: 1 / 7;
+        width: 2px;
+        @include lg {
+          grid-column: 2 / 3;
+          grid-row: 2 / 9;
+        }
+      }
+
+      &:nth-child(16) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+
+      &:nth-child(17) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        @include lg {
+          grid-column: 1 / 2;
+          grid-row: 5 / 6;
+        }
+      }
+
+      &:nth-child(18) {
+        grid-column: 1 / 2;
+        grid-row: 6 / 7;
+        @include lg {
+          grid-column: 1 / 2;
+          grid-row: 8 / 9;
+        }
+      }
+
+      &:hover {
+        animation-timing-function: ease-in-out;
+        background-blend-mode: multiply;
+        background-color: $primary;
+        transition: 0.5s;
+      }
+    }
+  }
+
+  > a {
+    > article {
+      display: grid;
+      grid-template-columns: auto 50%;
+      position: relative;
+      top: rem-calc(-70px);
+      z-index: 6;
+
+      > div {
+        align-items: center;
+        background-color: black;
+        border: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        font-family: "benton-sans-wide",sans-serif;
+        grid-column: 2 / 3;
+        height: rem-calc(100px);
+        justify-content: center;
+        position: relative;
+
+        .locator {
+          align-items: center;
+          display: flex;
+          height: 100%;
+          justify-content: center;
+
+          .line {
+            align-items: flex-end;
+            background-color: $text;
+            display: flex;
+            height: 250%;
+            justify-content: center;
+
+            .arrow {
+              border-color: $text;
+            }
+          }
+        }
+      }
+    }
+  }
+}
