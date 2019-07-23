@@ -109,6 +109,10 @@ main {
   background-color: white;
   width: 2px;
 }
+
+.unclck {
+  pointer-events: none;
+}
 /* ========================
       Responsive
 ========================= */
@@ -130,5 +134,35 @@ main {
   display: none;
   @include lg {
     display: block;
+  }
+}
+/* ========================
+      Animation
+========================= */
+@keyframes enlarge-right {
+  0% {
+    transform: rotate(-90deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(-90deg) scale(1.2);
+  }
+}
+@keyframes enlarge-left {
+  0% {
+    transform: rotate(90deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(90deg) scale(1.2);
+  }
+}
+@keyframes enlarge {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
   }
 }

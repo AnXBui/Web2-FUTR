@@ -17,6 +17,9 @@
     @include lg {
       grid-template-columns: 15% 400px auto;
     }
+    @include xl {
+      grid-template-columns: calc((100vw - 800px)/ 2) 400px auto;
+    }
 
     > div {
       background-color: black;
@@ -61,7 +64,8 @@
           font-size: rem-calc(18px);
         }
         @include lg {
-          font-size: rem-calc(25px);
+          font-size: rem-calc(20px);
+          margin-left: -10%;
         }
 
         > article {
@@ -73,6 +77,9 @@
           }
           @include lg {
             width: 80vw;
+          }
+          @include xl {
+            width: 1000px;
           }
         }
 
@@ -110,6 +117,9 @@
             padding-left: 0;
             padding-right: 0;
             text-align: left;
+          }
+          @include lg {
+            margin-left: 20%;
           }
         }
       }
@@ -201,6 +211,13 @@
     position: relative;
     top: -50px;
     z-index: 2;
+    @include lg {
+      height: 450px;
+    }
+    @include xl {
+      margin: 0 auto;
+      max-width: 1200px;
+    }
 
     > div {
       align-items: center;
@@ -236,6 +253,9 @@
     @include lg {
       grid-template-columns: 15% 600px auto;
     }
+    @include xl {
+      grid-template-columns: calc((100vw - 800px)/ 2)600px auto;
+    }
 
     > div {
       position: relative;
@@ -266,11 +286,27 @@
         .ring.left {
           background-color: white;
           margin-left: -26px;
+
+          &:hover {
+            animation-duration: 0.15s;
+            animation-fill-mode: both;
+            animation-name: enlarge-left;
+            animation-timing-function: ease-in-out;
+            transition: 0.5s;
+          }
         }
 
         .ring.right {
           background-color: white;
           margin-right: -26px;
+
+          &:hover {
+            animation-duration: 0.15s;
+            animation-fill-mode: both;
+            animation-name: enlarge-right;
+            animation-timing-function: ease-in-out;
+            transition: 0.5s;
+          }
         }
 
         .arrow {

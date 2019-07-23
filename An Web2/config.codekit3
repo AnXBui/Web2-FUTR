@@ -167,6 +167,28 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/img/Nav/cursor-arrow.png": {
+		"ft": 32768,
+		"iS": 207,
+		"oA": 0,
+		"oAP": "/img/Nav/cursor-arrow.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/img/Nav/cursor-arrow_2.png": {
+		"ft": 32768,
+		"iS": 267,
+		"oA": 0,
+		"oAP": "/img/Nav/cursor-arrow_2.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/index.html": {
 		"cB": 0,
 		"ft": 8192,

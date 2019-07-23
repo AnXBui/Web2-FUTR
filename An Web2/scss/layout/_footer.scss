@@ -33,6 +33,17 @@ footer {
           background-size: cover;
           height: 51px;
           width: 83px;
+
+          &:hover {
+            &::before {
+              background-color: $primary;
+              content: '';
+              height: 51px;
+              mix-blend-mode: multiply;
+              position: absolute;
+              width: 83px;
+            }
+          }
         }
       }
     }

@@ -13,6 +13,9 @@
     @include lg {
       grid-template-columns: 37% 55vw auto;
     }
+    @include xl {
+      grid-template-columns: calc((100vw - 800px)/ 2 + 255px) 660px auto;
+    }
 
     > div {
       background-color: black;
@@ -96,6 +99,11 @@
       max-width: 50vw;
       top: -9vw;
     }
+    @include xl {
+      left: calc((100vw - 800px)/ 2 - 250px);
+      top: -200px;
+      width: 750px;
+    }
 
     h2 {
       font-family: "roc-grotesk-extrawide",sans-serif;
@@ -107,10 +115,10 @@
       position: absolute;
       top: 0;
       writing-mode: vertical-rl;
-    }
-
-    &:hover {
-      background-size: 120%;
+      @include xl {
+        left: 400px;
+        margin-left: 0;
+      }
     }
 
     h3 {
@@ -130,6 +138,9 @@
         margin-right: 0;
         width: 50vw;
       }
+      @include xl {
+        width: 750px;
+      }
 
       > div {
         align-items: center;
@@ -142,26 +153,40 @@
           transform: translateY(50%);
           transform: translateX(85%);
         }
+        @include xl {
+          transform: translateY(100%) translateX(85%);
+        }
 
-        div.ring {
-          background-color: white;
-          height: rem-calc(60px);
-          width: rem-calc(60px);
-
-          &:hover {
-            background-color: $primary;
-            border-color: $primary;
-            transition: 0.5s;
+        &:hover {
+          > h3 {
+            color: $primary;
+            font-size: rem-calc(24px);
+            margin-left: 20px;
+            transition: 0.25s;
           }
+        }
+      }
 
-          b.arrow-line {
-            background-color: black;
-          }
+      div.ring {
+        background-color: white;
+        height: rem-calc(60px);
+        width: rem-calc(60px);
 
-          div.arrow {
-            border-color: black;
-            margin-bottom: rem-calc(-20px);
-          }
+        &:hover {
+          animation-duration: 0.15s;
+          animation-fill-mode: both;
+          animation-name: enlarge-right;
+          animation-timing-function: ease-in-out;
+          transition: 0.5s;
+        }
+
+        b.arrow-line {
+          background-color: black;
+        }
+
+        div.arrow {
+          border-color: black;
+          margin-bottom: rem-calc(-20px);
         }
       }
     }

@@ -5,6 +5,14 @@
   margin-top: 100px;
   position: relative;
 
+  > div {}
+
+  .gallery-img {
+    &:hover {
+      cursor: url("../img/Nav/cursor-arrow.png"), e-resize;
+    }
+  }
+
   .gallery-mobile {
     @include md {
       display: none;
@@ -93,6 +101,10 @@
     @include lg {
       grid-template-columns: 1fr 90vw 1fr;
     }
+    @include xl {
+      display: grid;
+      grid-template-columns: auto 1000px auto;
+    }
   }
 
   .gallery-grid {
@@ -115,9 +127,80 @@
       grid-template-columns: repeat(3,1fr);
       grid-template-rows: repeat(9,30vw);
     }
+    @include xl {
+      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: repeat(9, 250px);
+    }
     /* ----------------
         Blocks-settings
     ------------------*/
+    .gallery-img {
+      font-family: "roc-grotesk-extrawide",sans-serif;
+      position: relative;
+      z-index: 2;
+      @keyframes offset-right {
+        from {
+          opacity: 0;
+          transform: translateX(5%);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(25%);
+        }
+      }
+      @keyframes expand-right {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 100%;
+        }
+      }
+      @include lg {
+        &:hover {
+          background-blend-mode: multiply;
+          background-color: $primary;
+          transition: 0.25s;
+        }
+
+        > div {
+          > p {
+            animation-timing-function: ease-in-out;
+            font-size: rem-calc(25px);
+            opacity: 0;
+          }
+        }
+      }
+
+      > div {
+        display: none;
+        @include lg {
+          display: block;
+        }
+      }
+
+      &:hover {
+        > div {
+          align-items: center;
+          display: flex;
+          height: 100%;
+          justify-content: center;
+          transition: 0.5s;
+          width: 100%;
+
+          > p {
+            animation-delay: 0.15s;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-name: offset-right;
+            animation-timing-function: ease-in-out;
+          }
+        }
+      }
+    }
+
     .border-box {
       border: 1px solid white;
     }
@@ -160,6 +243,13 @@
       position: absolute;
       right: 0;
       width: 20vw;
+      z-index: 3;
+      @include xl {
+        height: 100px;
+        margin-bottom: -35px;
+        margin-right: -65px;
+        width: 170px;
+      }
 
       > article {
         align-items: center;
@@ -175,6 +265,7 @@
     li {
       @include md {
         height: 100%;
+        position: relative;
         width: 100%;
       }
       /* --------------
@@ -222,9 +313,14 @@
           grid-column: 1 / 2;
           grid-row: 6 / 8;
         }
+        @include xl {
+          grid-column: 4 / 5;
+          grid-row: 5 / 7;
+        }
       }
 
       &:nth-child(4) {
+        background-color: red;
         background-image: url("../img/Gallery/gallery3.png");
         background-position: center;
         background-size: cover;
@@ -236,6 +332,10 @@
           grid-column: 2 / 3;
           grid-row: 5 / 6;
         }
+        @include xl {
+          grid-column: 1 / 2;
+          grid-row: 5 / 6;
+        }
       }
 
       &:nth-child(5) {
@@ -244,6 +344,10 @@
         background-size: cover;
         grid-column: 2 / 3;
         grid-row: 8 / 9;
+        @include xl {
+          grid-column: 3 / 4;
+          grid-row: 7 / 8;
+        }
       }
       /* --------------
           Text&Navs
@@ -255,6 +359,13 @@
         font-size: rem-calc(25px);
         grid-column: 2 / 3;
         grid-row: 1 / 2;
+
+        h4 {
+          display: hidden;
+          @include xl {
+            display: block;
+          }
+        }
         @include ml {
           font-size: rem-calc(30px);
         }
@@ -264,9 +375,15 @@
         }
 
         > div {
+          color: white;
           margin-left: -25vw;
           position: absolute;
           top: 5vw;
+          @include xl {
+            margin-left: -400px;
+            top: 150px;
+            width: 1000px;
+          }
 
           span {
             color: $primary;
@@ -286,13 +403,19 @@
             > aside {
               height: 30vw;
               margin-left: -51vw;
+              position: relative;
               width: 101vw;
+              z-index: 1;
               @include ml {
                 height: 35vw;
               }
               @include lg {
-                margin-left: -65.45vw;
+                margin-left: -65.5vw;
                 width: 101vw;
+              }
+              @include xl {
+                margin-left: -500px;
+                width: 1000px;
               }
 
               > article {
@@ -320,16 +443,26 @@
                   margin-top: 5vw;
                   padding-top: 10px;
                 }
+                @include xl {
+                  font-size: rem-calc(50px);
+                  margin-top: -90px;
+                }
 
                 h1:first-child {
                   left: 0;
                   margin-left: -55px;
+                  @include xl {
+                    margin-left: 0;
+                  }
                 }
 
                 h1:last-child {
                   margin-right: -55px;
                   right: 0;
                   text-align: right;
+                  @include xl {
+                    margin-right: 0;
+                  }
                 }
               }
             }
@@ -344,6 +477,14 @@
         @include lg {
           grid-column: 1 / 2;
           grid-row: 9 / 10;
+        }
+        @include lg {
+          grid-column: 3 / 4;
+          grid-row: 8 / 9;
+        }
+        @include xl {
+          grid-column: 2 / 3;
+          grid-row: 8 / 9;
         }
 
         > div {
@@ -375,6 +516,10 @@
             height: 2px;
             margin-top: 4vw;
             width: 25vw;
+            @include xl {
+              margin-top: 75px;
+              width: 400px;
+            }
           }
 
           .locator {
@@ -396,6 +541,10 @@
       &:nth-child(8) {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
+        @include xl {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+        }
       }
 
       &:nth-child(9) {
@@ -405,11 +554,19 @@
           grid-column: 2 / 3;
           grid-row: 6 / 8;
         }
+        @include xl {
+          grid-column: 2 / 3;
+          grid-row: 6 / 7;
+        }
       }
 
       &:nth-child(10) {
         grid-column: 3 / 4;
         grid-row: 8 / 9;
+        @include xl {
+          grid-column: 3 / 4;
+          grid-row: 9 / 10;
+        }
       }
       /* --------------
         Extras
@@ -423,9 +580,12 @@
         }
 
         .line {
-          height: 50vw;
+          position: relative;
           @include ml {
             height: 20vw;
+          }
+          @include xl {
+            height: 125px;
           }
         }
 
@@ -436,6 +596,9 @@
           }
           @include lg {
             margin-top: 20vw;
+          }
+          @include xl {
+            margin-top: 200px;
           }
         }
       }
@@ -453,12 +616,18 @@
           @include lg {
             height: 30vw;
           }
+          @include xl {
+            height: 300px;
+          }
         }
 
         .Y-locator {
           margin-top: 35vw;
           @include lg {
             margin-top: 50vw;
+          }
+          @include xl {
+            margin-top: 100px;
           }
         }
       }
@@ -476,12 +645,18 @@
           @include lg {
             height: 25vw;
           }
+          @include xl {
+            height: 450px;
+          }
         }
 
         .Y-locator {
           margin-top: -30vw;
           @include lg {
             margin-top: -15vw;
+          }
+          @include xl {
+            margin-top: -325px;
           }
         }
       }
@@ -491,18 +666,31 @@
         grid-row: 8 / 9;
         @include lg {
           grid-column: 3 / 4;
-          grid-row: 7 / 8;
+          grid-row: 8 / 9;
+        }
+        @include xl {
+          grid-column: 3 / 4;
+          grid-row: 9 / 10;
         }
 
         .line {
           height: 30vw;
           @include lg {
-            height: 75vw;
+            height: 60vw;
+          }
+          @include xl {
+            height: 435px;
           }
         }
 
         .Y-locator {
-          margin-top: 40vw;
+          margin-top: 30vw;
+          @include lg {
+            margin-top: 20vw;
+          }
+          @include xl {
+            margin-top: 100px;
+          }
         }
       }
 
@@ -510,9 +698,15 @@
         background-color: white;
         grid-column: 2 / 2;
         grid-row: 1 / 7;
+        position: relative;
         width: 2px;
+        z-index: 3;
         @include lg {
           grid-column: 2 / 3;
+          grid-row: 2 / 9;
+        }
+        @include xl {
+          grid-column: 3 / 4;
           grid-row: 2 / 9;
         }
       }
@@ -520,6 +714,9 @@
       &:nth-child(16) {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
+        @include xl {
+          grid-column: 2 / 3;
+        }
       }
 
       &:nth-child(17) {
@@ -538,13 +735,10 @@
           grid-column: 1 / 2;
           grid-row: 8 / 9;
         }
-      }
-
-      &:hover {
-        animation-timing-function: ease-in-out;
-        background-blend-mode: multiply;
-        background-color: $primary;
-        transition: 0.5s;
+        @include xl {
+          grid-column: 3 / 4;
+          grid-row: 6 / 7;
+        }
       }
     }
   }
