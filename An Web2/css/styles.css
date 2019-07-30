@@ -311,6 +311,9 @@ template {
 /* =============
     Base
 ============= */
+html {
+  scroll-behavior: smooth; }
+
 figure,
 h1,
 h2,
