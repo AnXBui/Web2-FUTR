@@ -2,9 +2,14 @@
     Contacts
 ============= */
 #contacts {
-  margin-top: 50px;
+  margin-top: 100px;
+  margin-bottom: 200px;
   @include md {
     margin-top: 20vw;
+  }
+
+  @include lg{
+    margin-top: 0;
   }
   @include xl {
     display: grid;
@@ -14,9 +19,11 @@
   }
 
   > div {
+    padding-top: 100px;
     background-blend-mode: multiply;
     background-color: $primary;
     background-image: url("../img/Contacts/contact.png");
+    background-repeat: no-repeat;
     background-position: 10% 0;
     background-size: cover;
     display: grid;
@@ -26,7 +33,7 @@
       height: 80vh;
     }
     @include xl {
-      background-size: 120%;
+      background-size: cover;
       grid-column: 2 / 3;
     }
 

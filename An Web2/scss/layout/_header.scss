@@ -1,74 +1,127 @@
 /* =============
     Header
 ============= */
+// header {
+//   background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
+//   overflow: hidden;
+//   // border-bottom: 1px solid $text;
+//   padding-bottom: 5px;
+//   position: fixed;
+//   width: 100%;
+//   z-index: 30;
+//
+//   nav {
+//     > div {
+//       align-items: flex-end;
+//       display: flex;
+//       justify-content: space-between;
+//
+//       div:first-child {
+//         height: auto;
+//         width: 35px;
+//       }
+//
+//       div:last-child {
+//         div:first-child {
+//           display: flex;
+//           font-size: 25px;
+//           justify-content: flex-end;
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// .menu-list {
+//   align-items: flex-end;
+//   display: flex;
+//   justify-content: space-between;
+//
+//   a {
+//     padding-left: 30px;
+//
+//     &:hover {
+//       color: $primary;
+//     }
+//   }
+//
+//   input {
+//     background-color: black;
+//     border-color: $text;
+//     border-style: solid;
+//     border-width: 1px;
+//     color: white;
+//     transition: 0.5s;
+//     transition-timing-function: ease;
+//   }
+//
+//   input:hover {
+//     background-color: white;
+//     color: black;
+//     transition: 0.5s;
+//     transition-timing-function: ease;
+//   }
+// }
+//
+// .menu-button {
+//   &:hover {
+//     color: $primary;
+//   }
+// }
+//
+// .none {
+//   display: none;
+// }
+
 header {
   background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
-  overflow: hidden;
-  // border-bottom: 1px solid $text;
-  padding-bottom: 5px;
+  display: grid;
+  grid-template-areas: "logo burger";
+  grid-template-columns: auto 70%;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   z-index: 30;
+  @include lg {
+    grid-template-areas: "logo nav";
+    grid-template-columns: auto 90%;
+  }
+  // logo container
+  section:nth-child(1) {
+    display: flex;
+    grid-area: logo;
+    justify-content: flex-start;
+    padding: 10px;
 
+    > a {
+      height: auto;
+      width: 35px;
+    }
+  }
+  // burger container
+  section:nth-child(2) {
+    align-items: center;
+    display: flex;
+    grid-area: burger;
+    justify-content: flex-end;
+    @include lg {
+      display: none;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      outline: none;
+      padding: 10px;
+    }
+  }
+  // nav container
   nav {
-    > div {
-      align-items: flex-end;
-      display: flex;
-      justify-content: space-between;
-
-      div:first-child {
-        height: auto;
-        width: 35px;
-      }
-
-      div:last-child {
-        div:first-child {
-          display: flex;
-          font-size: 25px;
-          justify-content: flex-end;
-        }
-      }
+    grid-area: nav;
+    position: absolute;
+    @include lg {
+      display: flex !important;
+      position: relative;
     }
   }
-}
-
-.menu-list {
-  align-items: flex-end;
-  display: flex;
-  justify-content: space-between;
-
-  a {
-    padding-left: 30px;
-
-    &:hover {
-      color: $primary;
-    }
-  }
-
-  input {
-    background-color: black;
-    border-color: $text;
-    border-style: solid;
-    border-width: 1px;
-    color: white;
-    transition: 0.5s;
-    transition-timing-function: ease;
-  }
-
-  input:hover {
-    background-color: white;
-    color: black;
-    transition: 0.5s;
-    transition-timing-function: ease;
-  }
-}
-
-.menu-button {
-  &:hover {
-    color: $primary;
-  }
-}
-
-.none {
-  display: none;
 }

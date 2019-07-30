@@ -84,7 +84,6 @@
     max-width: 325px;
     position: relative;
     top: -10vw;
-    transition: 1s;
     width: 65vw;
     @include sm {
       left: 10vw;
@@ -100,6 +99,7 @@
       top: -9vw;
     }
     @include xl {
+      background-position: 20% 20%;
       left: calc((100vw - 800px)/ 2 - 250px);
       top: -200px;
       width: 750px;

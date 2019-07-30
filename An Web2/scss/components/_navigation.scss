@@ -1,3 +1,154 @@
 /* =============
     Navigation
 ============= */
+header {
+  // logo container
+  section:nth-child(1) {
+    z-index: 31;
+
+  }
+  // burger container
+  section:nth-child(2) {
+    z-index: 31;
+    @include lg {
+      display: none;
+    }
+
+    button {
+      color: white;
+      font-size: rem-calc(30px);
+    }
+  }
+
+  nav {
+    animation-fill-mode: both;
+    transition: 0.5s;
+    // position: relative;
+    z-index: 30;
+    @include lg {
+      align-items: center;
+      justify-content: center;
+    }
+
+    ul {
+      align-items: center;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      font-family: "benton-sans-wide",sans-serif;
+      font-size: rem-calc(25px);
+      height: 101vh;
+      justify-content: center;
+      position: absolute;
+      width: 100vw;
+      z-index: 100;
+      @include lg {
+        align-items: baseline;
+        background-color: transparent;
+        flex-direction: row;
+        font-size: rem-calc(15px);
+        height: auto;
+        justify-content: flex-end;
+        position: inherit;
+        width: 100%;
+      }
+
+      li {
+        &:last-child {
+          display: flex;
+          justify-content: center;
+          width: 80vw;
+          @include lg {
+            width: auto;
+          }
+
+          > input {
+            background-color: black;
+            background-image: url("../img/Header/header_search.svg");
+            background-position: 8px;
+            background-repeat: no-repeat;
+            background-size: 23px;
+            border-color: $text;
+            border-style: solid;
+            border-width: 1px;
+            color: $text;
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: rem-calc(14px);
+            height: 40px;
+            left: 10vw;
+            padding-right: 10px;
+            text-align: right;
+            text-overflow: clip;
+            transition: 0.5s;
+            transition-timing-function: ease;
+            width: 70%;
+
+            &:focus {
+              border-color: white;
+              color: white;
+              transition: 0.5s;
+              transition-timing-function: ease;
+              width: 100%;
+              @include lg {
+                width: 180px;
+              }
+            }
+            @include sm {
+              font-size: rem-calc(18px);
+              text-align: center;
+              width: 60%;
+            }
+            @include md {
+              width: 50%;
+            }
+            @include lg {
+              background-size: 15px;
+              bottom: auto;
+              height: 20px;
+              left: 0;
+              margin-bottom: 0;
+              margin-left: 0;
+              margin-right: 20px;
+              position: relative;
+              text-align: right;
+              top: auto;
+              width: 180px;
+            }
+          }
+        }
+
+        > a {
+          border-bottom: 1px transparent solid;
+          border-top: 1px white solid;
+          display: inline-block;
+          padding: 50px;
+          text-align: center;
+
+          &:active,
+          &:hover {
+            color: $primary;
+            @include lg {
+              border-bottom: 1px $primary solid;
+              cursor: url("../img/Nav/cursor-arrow.png"), e-resize;
+            }
+          }
+          @include lg {
+            border-top-width: 0;
+            padding: 20px 24px;
+            text-align: right;
+          }
+        }
+
+        &:first-child {
+          > a {
+            border-top-width: 0;
+            @include lg {
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

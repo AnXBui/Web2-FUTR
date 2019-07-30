@@ -136,6 +136,39 @@ main {
     display: block;
   }
 }
+
+.op {
+  opacity: 1;
+  transition: opacity 0.5s;
+
+  > ul {
+    height: 101vh;
+    transition: height 0.6s;
+    @include lg{
+      height: auto;
+    }
+  }
+
+
+}
+
+.faded {
+  opacity: 0;
+  pointer-events: none;
+
+  @include lg {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  > ul {
+    height: 0;
+    transition: height 0.6s;
+    @include lg{
+      height: auto;
+    }
+  }
+}
 /* ========================
       Animation
 ========================= */

@@ -22,12 +22,12 @@
   > div.gallery-mobile {
     .line {
       background-color: white;
-      height: 1350px;
+      height: 1250px;
       left: 37%;
       position: absolute;
       z-index: 3;
       @include sm {
-        height: 3000px;
+        height: 2900px;
         max-height: none;
       }
 
@@ -180,22 +180,23 @@
           display: block;
         }
       }
+      @include lg {
+        &:hover {
+          > div {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            transition: 0.5s;
+            width: 100%;
 
-      &:hover {
-        > div {
-          align-items: center;
-          display: flex;
-          height: 100%;
-          justify-content: center;
-          transition: 0.5s;
-          width: 100%;
-
-          > p {
-            animation-delay: 0.15s;
-            animation-duration: 0.5s;
-            animation-fill-mode: both;
-            animation-name: offset-right;
-            animation-timing-function: ease-in-out;
+            > p {
+              animation-delay: 0.15s;
+              animation-duration: 0.5s;
+              animation-fill-mode: both;
+              animation-name: offset-right;
+              animation-timing-function: ease-in-out;
+            }
           }
         }
       }
@@ -214,12 +215,14 @@
         position: relative;
 
         .Y-locator {
-          background-color: red;
           position: absolute;
           top: 0;
         }
 
-        .line {}
+        .line {
+          position: absolute;
+          z-index: 5;
+        }
 
         .locator {
           display: flex;
@@ -320,7 +323,6 @@
       }
 
       &:nth-child(4) {
-        background-color: red;
         background-image: url("../img/Gallery/gallery3.png");
         background-position: center;
         background-size: cover;
@@ -503,6 +505,12 @@
           .Y-locator {
             bottom: 0;
             position: absolute;
+            @include md {
+              bottom: 40%;
+            }
+            @include xl {
+              bottom: 50px;
+            }
           }
 
           .X-locator {
@@ -510,6 +518,10 @@
             display: flex;
             flex-direction: column;
             padding-bottom: 5vw;
+            @include xl {
+              padding-bottom: 50px;
+              justify-content: center;
+            }
           }
 
           .arrow-line {
@@ -519,6 +531,7 @@
             @include xl {
               margin-top: 75px;
               width: 400px;
+              width: 180px;
             }
           }
 
@@ -662,6 +675,7 @@
       }
 
       &:nth-child(14) {
+        position: relative;
         grid-column: 2 / 3;
         grid-row: 8 / 9;
         @include lg {
@@ -674,9 +688,11 @@
         }
 
         .line {
-          height: 30vw;
+          z-index: 0;
+          height: 25vw;
           @include lg {
-            height: 60vw;
+            height: 25vw;
+            max-height: 435px;
           }
           @include xl {
             height: 435px;
@@ -686,7 +702,7 @@
         .Y-locator {
           margin-top: 30vw;
           @include lg {
-            margin-top: 20vw;
+            margin-top: 25vw;
           }
           @include xl {
             margin-top: 100px;

@@ -7,7 +7,10 @@ footer {
 
   > div:first-child {
     > a {
+      display: flex;
+      justify-content: center;
       > aside {
+        width: 200px;
         align-items: center;
         display: flex;
         flex-direction: column;
@@ -15,6 +18,15 @@ footer {
 
         .arrow-line {
           height: 40px;
+        }
+
+        &:hover, &:active{
+          .arrow-line{
+          background-color: $primary;
+        }
+          .arrow{
+            border-color: $primary;
+          }
         }
       }
     }
@@ -56,12 +68,21 @@ footer {
     margin-top: 20px;
     padding: 20px 10px;
 
+    a:hover, a:active{
+      transition: 0.25s;
+      color: $primary;
+    }
+
     ul {
       display: flex;
 
       li {
         font-size: 25px;
         margin-left: 15px;
+        &:hover, &:active{
+          transition: 0.25s;
+          color: $primary;
+        }
       }
     }
   }
