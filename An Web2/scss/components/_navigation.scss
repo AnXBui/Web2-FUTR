@@ -38,7 +38,7 @@ header {
       font-family: "benton-sans-wide",sans-serif;
       font-size: rem-calc(25px);
       height: 101vh;
-      justify-content: center;
+      justify-content: flex-end;
       position: absolute;
       width: 100vw;
       z-index: 100;
@@ -54,12 +54,17 @@ header {
       }
 
       li {
+
         &:last-child {
+          margin-top: calc(minmax(20vh,300px));
+          margin-bottom: 100px;
           display: flex;
           justify-content: center;
           width: 80vw;
           @include lg {
             width: auto;
+            margin-top: 0;
+            margin-bottom:0;
           }
 
           > input {
@@ -124,6 +129,10 @@ header {
           display: inline-block;
           padding: 50px;
           text-align: center;
+          width: 40vw;
+          display: flex;
+          justify-content: center;
+
 
           &:active,
           &:hover {
@@ -137,7 +146,12 @@ header {
             border-top-width: 0;
             padding: 20px 24px;
             text-align: right;
+            width: auto;
           }
+        }
+
+        >p{
+
         }
 
         &:first-child {
