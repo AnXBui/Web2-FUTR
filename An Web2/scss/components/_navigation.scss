@@ -1,168 +1,119 @@
 /* =============
     Navigation
 ============= */
-header {
-  // logo container
-  section:nth-child(1) {
-    z-index: 31;
+a:hover,
+a:link {
+    text-decoration: none;
+    transition: o.25s;
+}
 
-  }
-  // burger container
-  section:nth-child(2) {
-    z-index: 31;
-    @include lg {
-      display: none;
-    }
 
-    button {
-      color: white;
-      font-size: rem-calc(30px);
-    }
-  }
+#off-canvas-container{
+    /* -------------
+        Here are the properties you can changes for the off-canvas navigation-slide
+    ------------- */
 
-  nav {
-    animation-fill-mode: both;
-    transition: 0.5s;
-    // position: relative;
-    z-index: 30;
-    @include lg {
-      align-items: center;
-      justify-content: center;
-    }
+    grid-template-columns: 10px auto;
+    grid-template-areas: ". off-canvas";
+    background-color: white;
+    // padding-top: 20px;
 
-    ul {
-      align-items: center;
-      background-color: rgba(0,0,0,0.8);
+    // width of the off canvas navigation
+    width: 30vw;
+    min-width: 280px;
+    max-width: 400px;
+
+
+    /* close btn */
+    aside{
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      font-family: "benton-sans-wide",sans-serif;
-      font-size: rem-calc(25px);
-      height: 101vh;
       justify-content: flex-end;
-      position: absolute;
-      width: 100vw;
-      z-index: 100;
-      @include lg {
-        align-items: baseline;
-        background-color: transparent;
-        flex-direction: row;
-        font-size: rem-calc(15px);
-        height: auto;
-        justify-content: flex-end;
-        position: inherit;
-        width: 100%;
-      }
-
-      li {
-
-        &:last-child {
-          margin-top: calc(minmax(20vh,300px));
-          margin-bottom: 100px;
-          display: flex;
-          justify-content: center;
-          width: 80vw;
-          @include lg {
-            width: auto;
-            margin-top: 0;
-            margin-bottom:0;
-          }
-
-          > input {
-            background-color: black;
-            background-image: url("../img/Header/header_search.svg");
-            background-position: 8px;
-            background-repeat: no-repeat;
-            background-size: 23px;
-            border-color: $text;
-            border-style: solid;
-            border-width: 1px;
-            color: $text;
-            display: block;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: rem-calc(14px);
-            height: 40px;
-            left: 10vw;
-            padding-right: 10px;
-            text-align: right;
-            text-overflow: clip;
-            transition: 0.5s;
-            transition-timing-function: ease;
-            width: 70%;
-
-            &:focus {
-              border-color: white;
-              color: white;
-              transition: 0.5s;
-              transition-timing-function: ease;
-              width: 100%;
-              @include lg {
-                width: 180px;
-              }
-            }
-            @include sm {
-              font-size: rem-calc(18px);
-              text-align: center;
-              width: 60%;
-            }
-            @include md {
-              width: 50%;
-            }
-            @include lg {
-              background-size: 15px;
-              bottom: auto;
-              height: 20px;
-              left: 0;
-              margin-bottom: 0;
-              margin-left: 0;
-              margin-right: 20px;
-              position: relative;
-              text-align: right;
-              top: auto;
-              width: 180px;
-            }
-          }
-        }
-
-        > a {
-          border-bottom: 1px transparent solid;
-          border-top: 1px white solid;
-          display: inline-block;
-          padding: 50px;
-          text-align: center;
-          width: 40vw;
-          display: flex;
-          justify-content: center;
-
-
-          &:active,
-          &:hover {
-            color: $primary;
-            @include lg {
-              border-bottom: 1px $primary solid;
-              cursor: url("../img/Nav/cursor-arrow.png"), e-resize;
-            }
-          }
-          @include lg {
-            border-top-width: 0;
-            padding: 20px 24px;
-            text-align: right;
-            width: auto;
-          }
-        }
-
-        >p{
-
-        }
-
-        &:first-child {
-          > a {
-            border-top-width: 0;
-            @include lg {
-              padding-left: 0;
-            }
-          }
-        }
+      button {
+          margin-left: -10px;
+          background-color: transparent;
+          border: none;
+          color: black;
+          cursor: pointer;
+          font-size: rem-calc(25);
+          margin-bottom: 20px;
+          transition: 0.25s;
       }
     }
-  }
+
+
+    /* close btn */
+    button:hover {
+        color: $primary;
+    }
+    nav{
+
+
+
+      ul {
+
+          li {
+              color: black;
+              text-align: left;
+              width: 100%;
+
+              >form{
+                display: flex;
+                justify-content: left;
+                >button{
+                  width: 40px;
+                  background-color: black;
+                  color: white;
+                  font-size: rem-calc(18px);
+                  border: none;
+                }
+                >input{
+                  border: 1px black solid;
+                  padding: 8px 5px 5px 4px;
+                  &:focus{
+                    box-shadow: none;
+
+                  }
+                }
+
+
+              }
+
+
+              a:link,
+              a:visited {
+                width: calc(100% - 10px);
+                display: inline-block;
+                padding-bottom: 5vh;
+                padding-top: 5vh;
+                border-bottom: 2px solid black;
+                color: black;
+                font-size: rem-calc(20px);
+                font-family: "roc-grotesk-extrawide",sans-serif;
+
+              }
+
+              a:active,
+              a:hover {
+                  color: $primary;
+                  cursor: url("../img/Nav/cursor-arrow2.png"), e-resize;
+              }
+          }
+      }
+
+    }
+
+
+}
+
+
+#burger-icon {
+    border: none;
+    font-size: rem-calc(18);
+    outline: none;
+    padding: 8px;
+    // position: fixed;
+    // right: 20px;
+    // top: 20px;
+    // z-index: 100;
 }

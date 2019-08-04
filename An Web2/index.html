@@ -15,31 +15,58 @@
 </head>
 
 <body>
+  <!-- Your options for data-navigation-position is: left | right -->
+  <!-- Your options for data-navigation-slide is: over | under | push -->
+  <section id="off-canvas-container" data-navigation-position="right" data-navigation-slide="over">
+      <div>
+          <aside>
+            <button>
+                <i class="far fa-times-circle" id="close-btn"></i>
+            </button>
+          </aside>
+
+          <div id="nav-container">
+              <nav data-nav="main-navigation">
+
+                  <ul>
+                    <li>
+                      <form>
+                        <button><i class="fas fa-search"></i></button>
+                        <input type="text" name="search-bar" placeholder="discover us...">
+                      </form>
+                    </li>
+                    <li><a href="#about">ABOUT US</a></li>
+                    <li><a href="#features">FEATURES</a></li>
+                    <li><a href="#gallery">WORKS</a></li>
+                    <li><a href="#contacts">CONTACTS</a></li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+  </section>
+
+
+  <!-- The header needs to be outside of the main tag if you are going to position fix it. -->
+  <header data-fixed="fixed-item">
+      <div>
+        <section>
+          <div><a href="#"><img src="img/Header/header_logo.svg" alt="futr logo"></a></div>
+        </section>
+          <!-- burger icon -->
+          <section id="burger-icon" >
+              <i class="fas fa-bars"></i>
+          </section>
+
+      </div>
+  </header>
+
+
   <main>
 
+    <!-- overlay for the view when the menu is visible. Please don't move -->
+      <div class="js-off-canvas-overlay" id="overlay"></div>
+    <!-- overlay for the view when the menu is visible. Please don't move -->
 
-    <header>
-
-            <section>
-              <a href="#"><img src="img/Header/header_logo.svg" alt="futr logo"></a>
-            </section>
-
-            <section>
-                <button id="burger-icon">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </section>
-
-            <nav class="faded" data-nav="main-navigation">
-                <ul>
-                    <li><a href="#about"><p>ABOUT US</p></a></li>
-                    <li><a href="#features"><p>SKILLS</p></a></li>
-                    <li><a href="#gallery"><p>WORKS</p></a></li>
-                    <li><a href="#contacts"><p>CONTACTS</p></a></li>
-                    <li><input type="text" name="search-bar" placeholder="discover us..."></li>
-                </ul>
-            </nav>
-        </header>
 
     <section id="hero">
       <div>
@@ -142,11 +169,7 @@
             <b class="arrow-line"></b>
             <div class="down arrow"></div>
           </div>
-          <!-- flex container -->
-          <!-- <div>
-            <!-- black gradient -->
-            <!-- <div></div>
-          </div> -->
+        
         </div>
 
       </div>

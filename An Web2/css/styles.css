@@ -314,6 +314,9 @@ template {
 html {
   scroll-behavior: smooth; }
 
+body main {
+  background-color: black; }
+
 figure,
 h1,
 h2,
@@ -480,6 +483,67 @@ body {
   font-family: 'IBM Plex Mono', monospace; }
 
 /* =============
+    Off Canvas
+============= */
+main {
+  position: relative;
+  z-index: 10;
+  background-color: white; }
+
+#off-canvas-container {
+  background-color: black;
+  display: grid;
+  grid-template-areas: ". off-canvas .";
+  grid-template-columns: 10px auto 10px;
+  padding-top: 20px;
+  width: 200px;
+  /* If you need padding or margin on the off-canvas menu, please add it to this div */ }
+  #off-canvas-container > div {
+    grid-area: off-canvas; }
+
+#off-canvas-container[data-navigation-slide="over"], #off-canvas-container[data-navigation-slide="push"] {
+  height: 100vh;
+  position: fixed;
+  z-index: 1000; }
+
+#off-canvas-container[data-navigation-slide="under"] {
+  height: 100vh;
+  position: fixed;
+  z-index: 5; }
+
+/* left */
+#off-canvas-container[data-navigation-position='left'] {
+  left: 0;
+  top: 0; }
+
+/* right */
+#off-canvas-container[data-navigation-position='right'] {
+  right: 0;
+  top: 0; }
+
+/* ===================
+    Navigation Helpers
+ =================== */
+/* overlay */
+.js-off-canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  width: 100vw;
+  height: 100%;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  /* change the color of the overlay */
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden; }
+
+.is-visible {
+  opacity: 1 !important;
+  visibility: visible !important; }
+
+/* =============
     Buttons
 ============= */
 /* =============
@@ -500,181 +564,103 @@ textarea {
 /* =============
     Navigation
 ============= */
-header section:nth-child(1) {
-  z-index: 31; }
+a:hover,
+a:link {
+  text-decoration: none;
+  transition: o 0.25s; }
 
-header section:nth-child(2) {
-  z-index: 31; }
-  @media (min-width: 880px) {
-    header section:nth-child(2) {
-      display: none; } }
-  header section:nth-child(2) button {
-    color: white;
-    font-size: 1.875rem; }
-
-header nav {
-  animation-fill-mode: both;
-  transition: 0.5s;
-  z-index: 30; }
-  @media (min-width: 880px) {
-    header nav {
-      align-items: center;
-      justify-content: center; } }
-  header nav ul {
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
+#off-canvas-container {
+  /* -------------
+        Here are the properties you can changes for the off-canvas navigation-slide
+    ------------- */
+  grid-template-columns: 10px auto;
+  grid-template-areas: ". off-canvas";
+  background-color: white;
+  width: 30vw;
+  min-width: 280px;
+  max-width: 400px;
+  /* close btn */
+  /* close btn */ }
+  #off-canvas-container aside {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    font-family: "benton-sans-wide",sans-serif;
-    font-size: 1.5625rem;
-    height: 101vh;
-    justify-content: flex-end;
-    position: absolute;
-    width: 100vw;
-    z-index: 100; }
-    @media (min-width: 880px) {
-      header nav ul {
-        align-items: baseline;
-        background-color: transparent;
-        flex-direction: row;
-        font-size: 0.9375rem;
-        height: auto;
-        justify-content: flex-end;
-        position: inherit;
-        width: 100%; } }
-    header nav ul li:last-child {
-      margin-top: calc(minmax(20vh,300px));
-      margin-bottom: 100px;
+    justify-content: flex-end; }
+    #off-canvas-container aside button {
+      margin-left: -10px;
+      background-color: transparent;
+      border: none;
+      color: black;
+      cursor: pointer;
+      font-size: 1.5625rem;
+      margin-bottom: 20px;
+      transition: 0.25s; }
+  #off-canvas-container button:hover {
+    color: #0DE5E8; }
+  #off-canvas-container nav ul li {
+    color: black;
+    text-align: left;
+    width: 100%; }
+    #off-canvas-container nav ul li > form {
       display: flex;
-      justify-content: center;
-      width: 80vw; }
-      @media (min-width: 880px) {
-        header nav ul li:last-child {
-          width: auto;
-          margin-top: 0;
-          margin-bottom: 0; } }
-      header nav ul li:last-child > input {
+      justify-content: left; }
+      #off-canvas-container nav ul li > form > button {
+        width: 40px;
         background-color: black;
-        background-image: url("../img/Header/header_search.svg");
-        background-position: 8px;
-        background-repeat: no-repeat;
-        background-size: 23px;
-        border-color: #D8D8D8;
-        border-style: solid;
-        border-width: 1px;
-        color: #D8D8D8;
-        display: block;
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.875rem;
-        height: 40px;
-        left: 10vw;
-        padding-right: 10px;
-        text-align: right;
-        text-overflow: clip;
-        transition: 0.5s;
-        transition-timing-function: ease;
-        width: 70%; }
-        header nav ul li:last-child > input:focus {
-          border-color: white;
-          color: white;
-          transition: 0.5s;
-          transition-timing-function: ease;
-          width: 100%; }
-          @media (min-width: 880px) {
-            header nav ul li:last-child > input:focus {
-              width: 180px; } }
-        @media (min-width: 500px) {
-          header nav ul li:last-child > input {
-            font-size: 1.125rem;
-            text-align: center;
-            width: 60%; } }
-        @media (min-width: 650px) {
-          header nav ul li:last-child > input {
-            width: 50%; } }
-        @media (min-width: 880px) {
-          header nav ul li:last-child > input {
-            background-size: 15px;
-            bottom: auto;
-            height: 20px;
-            left: 0;
-            margin-bottom: 0;
-            margin-left: 0;
-            margin-right: 20px;
-            position: relative;
-            text-align: right;
-            top: auto;
-            width: 180px; } }
-    header nav ul li > a {
-      border-bottom: 1px transparent solid;
-      border-top: 1px white solid;
+        color: white;
+        font-size: 1.125rem;
+        border: none; }
+      #off-canvas-container nav ul li > form > input {
+        border: 1px black solid;
+        padding: 8px 5px 5px 4px; }
+        #off-canvas-container nav ul li > form > input:focus {
+          box-shadow: none; }
+    #off-canvas-container nav ul li a:link,
+    #off-canvas-container nav ul li a:visited {
+      width: calc(100% - 10px);
       display: inline-block;
-      padding: 50px;
-      text-align: center;
-      width: 40vw;
-      display: flex;
-      justify-content: center; }
-      header nav ul li > a:active, header nav ul li > a:hover {
-        color: #0DE5E8; }
-        @media (min-width: 880px) {
-          header nav ul li > a:active, header nav ul li > a:hover {
-            border-bottom: 1px #0DE5E8 solid;
-            cursor: url("../img/Nav/cursor-arrow.png"), e-resize; } }
-      @media (min-width: 880px) {
-        header nav ul li > a {
-          border-top-width: 0;
-          padding: 20px 24px;
-          text-align: right;
-          width: auto; } }
-    header nav ul li:first-child > a {
-      border-top-width: 0; }
-      @media (min-width: 880px) {
-        header nav ul li:first-child > a {
-          padding-left: 0; } }
+      padding-bottom: 5vh;
+      padding-top: 5vh;
+      border-bottom: 2px solid black;
+      color: black;
+      font-size: 1.25rem;
+      font-family: "roc-grotesk-extrawide",sans-serif; }
+    #off-canvas-container nav ul li a:active,
+    #off-canvas-container nav ul li a:hover {
+      color: #0DE5E8;
+      cursor: url("../img/Nav/cursor-arrow2.png"), e-resize; }
+
+#burger-icon {
+  border: none;
+  font-size: 1.125rem;
+  outline: none;
+  padding: 8px; }
 
 /* =============
     Header
 ============= */
 header {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), black);
-  display: grid;
-  grid-template-areas: "logo burger";
-  grid-template-columns: auto 70%;
+  overflow: hidden;
+  padding-bottom: 5px;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   z-index: 30; }
-  @media (min-width: 880px) {
-    header {
-      grid-template-areas: "logo nav";
-      grid-template-columns: auto 90%; } }
-  header section:nth-child(1) {
+  header > div {
+    align-items: flex-end;
     display: flex;
-    grid-area: logo;
-    justify-content: flex-start;
-    padding: 10px; }
-    header section:nth-child(1) > a {
+    justify-content: space-between; }
+    header > div section:first-child {
+      padding: 10px;
       height: auto;
       width: 35px; }
-  header section:nth-child(2) {
-    align-items: center;
-    display: flex;
-    grid-area: burger;
-    justify-content: flex-end; }
-    @media (min-width: 880px) {
-      header section:nth-child(2) {
-        display: none; } }
-    header section:nth-child(2) button {
-      background-color: transparent;
-      border: none;
+    header > div section:last-child {
+      padding: 10px;
       color: white;
-      outline: none;
-      padding: 10px; }
-  header nav {
-    grid-area: nav;
-    position: absolute; }
-    @media (min-width: 880px) {
-      header nav {
-        display: flex !important;
-        position: relative; } }
+      display: flex;
+      font-size: 25px;
+      justify-content: flex-end; }
+      header > div section:last-child:active, header > div section:last-child:hover {
+        color: #0DE5E8; }
 
 /* =============
     Footer
@@ -902,7 +888,6 @@ footer {
     Hero
 ============== */
 #hero {
-  padding-top: 80px;
   position: relative;
   z-index: 2; }
   @media (min-width: 500px) {

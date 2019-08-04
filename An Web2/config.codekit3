@@ -188,14 +188,14 @@
 		"oT": 1,
 		"q": 100
 		},
-	"/img/Nav/cursor-arrow_2.png": {
+	"/img/Nav/cursor-arrow2.png": {
 		"ft": 32768,
-		"iS": 267,
+		"iS": 207,
 		"oA": 0,
-		"oAP": "/img/Nav/cursor-arrow_2.png",
+		"oAP": "/img/Nav/cursor-arrow2.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -303,6 +303,32 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/scss/components/_navigation.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/scss/components/dont-touch/_navigation-helpers.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/scss/components/dont-touch/_navigation-helpers.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/scss/components/dont-touch/_off-canvas.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/scss/components/dont-touch/_off-canvas.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
